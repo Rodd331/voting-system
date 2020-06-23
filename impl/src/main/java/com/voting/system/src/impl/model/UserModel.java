@@ -8,4 +8,8 @@ import lombok.Data;
 @Data
 @Builder
 public class UserModel {
+
+    private String idUser;
+    private String cpf;
+    private String password;
 }
