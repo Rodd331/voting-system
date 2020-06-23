@@ -49,7 +49,6 @@ public class UserController {
         return userContractFacade.findByCPF(cpf);
     }
 
-    //-----------
     @ApiOperation(value = "List all schedules.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Successful Operation"),
