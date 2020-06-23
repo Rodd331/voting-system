@@ -14,7 +14,6 @@ public class UserEntity {
 
     @Id
     String idUser;
-
     String cpf;
     String password;
 }

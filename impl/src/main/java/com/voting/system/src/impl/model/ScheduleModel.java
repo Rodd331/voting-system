@@ -13,7 +13,6 @@ import java.util.List;
 public class ScheduleModel {
 
     String idSchedule;
-
     String nameSchedule;
     String description;
 

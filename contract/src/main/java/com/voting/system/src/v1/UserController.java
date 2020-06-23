@@ -1,5 +1,6 @@
 package com.voting.system.src.v1;
 
+import com.voting.system.src.v1.facade.UserContractFacade;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,5 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class UserController {
+
+    private UserContractFacade userContractFacade;
 }
 
