@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
+
+    private String idUser;
+    private String cpf;
+
 }
