@@ -9,4 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ScheduleResquest {
+
+
 }
