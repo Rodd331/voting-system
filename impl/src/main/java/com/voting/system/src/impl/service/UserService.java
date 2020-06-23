@@ -38,7 +38,7 @@ public class UserService implements Validations {
     @Override
     public void validatorId(String id) {
         if (userRepository.findById(id).isEmpty()) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "ID not found");
+            throw new ApiException(HttpStatus.NOT_FOUND, "Id not found");
         }
     }
 

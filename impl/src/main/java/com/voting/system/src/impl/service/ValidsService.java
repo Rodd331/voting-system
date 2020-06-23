@@ -7,6 +7,7 @@ import com.voting.system.src.impl.model.VoteModel;
 import com.voting.system.src.impl.repository.ScheduleRepository;
 import com.voting.system.src.impl.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.Generated;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class ValidsService {
     private UserRepository userRepository;
     private ScheduleRepository scheduleRepository;
 
+    @Generated
     public void validatorCPF(String cpf) {
         String status = consumerCPF(cpf);
         if (status.equals("U")) {

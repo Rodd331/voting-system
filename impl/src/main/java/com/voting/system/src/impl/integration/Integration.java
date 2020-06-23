@@ -1,11 +1,15 @@
 package com.voting.system.src.impl.integration;
 
+import lombok.Generated;
+import lombok.Getter;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+@Generated
 public class Integration {
 
     public static String consumerCPF(String cpf) {
