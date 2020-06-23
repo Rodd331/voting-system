@@ -36,10 +36,7 @@ public class UserService implements Validations {
         return userRepository.findByCpf(cpf)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User not found"));
     }
-////////////////
-    public void voteUser(VoteModel vote) {
 
-    }
     @Override
     public void validatorId(String id) {
         if (userRepository.findById(id).isEmpty()) {

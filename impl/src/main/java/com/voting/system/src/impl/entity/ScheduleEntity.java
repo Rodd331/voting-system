@@ -25,7 +25,7 @@ public class ScheduleEntity {
     Integer votesApproving;
     Integer votesNotApproving;
 
-    List<Integer> cpfVoted;
+    List<String> cpfVoted;
 
     @Indexed(unique = true)
     Date startTimeDate;
