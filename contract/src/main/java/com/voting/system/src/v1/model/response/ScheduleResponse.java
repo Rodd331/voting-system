@@ -5,11 +5,23 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ScheduleResponse {
 
+    String idSchedule;
+    String nameSchedule;
+    String description;
 
+    Integer votesApproving;
+    Integer votesNotApproving;
+
+    Date startTimeDate;
+    Date endTimeDate;
+    Date dateCreationSchedule;
 }

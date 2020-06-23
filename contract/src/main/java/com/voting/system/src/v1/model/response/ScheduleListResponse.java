@@ -11,9 +11,8 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserListResponse {
+public class ScheduleListResponse {
 
-    private List<UserResponse> userResponseList;
+    private List<ScheduleResponse> scheduleResponseList;
     private int size;
-
 }
