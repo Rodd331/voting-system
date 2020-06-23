@@ -4,6 +4,7 @@ import com.voting.system.src.impl.handler.ExceptionResponse;
 import com.voting.system.src.v1.facade.ScheduleContractFacade;
 import com.voting.system.src.v1.facade.UserContractFacade;
 import com.voting.system.src.v1.model.request.UserRequest;
+import com.voting.system.src.v1.model.request.VoteRequest;
 import com.voting.system.src.v1.model.response.ScheduleListResponse;
 import com.voting.system.src.v1.model.response.ScheduleResponse;
 import com.voting.system.src.v1.model.response.UserResponse;
@@ -81,6 +82,19 @@ public class UserController {
     public ScheduleResponse findByIdSchedule(@PathVariable String idSchedule) {
         return scheduleContractFacade.findByIdSchedule(idSchedule);
     }
+
+    @ApiOperation(value = "Vote user.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "User approved"),
+            @ApiResponse(code = 400, message = "Bad Request", response = ExceptionResponse.class),
+            @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
+    })
+    @PostMapping("/user/vote")
+    @ResponseStatus(HttpStatus.OK)
+    public void voteUser(@Valid @RequestBody VoteRequest vote) {
+        userContractFacade.voteUser(vote);
+    }
+
 }
 
 

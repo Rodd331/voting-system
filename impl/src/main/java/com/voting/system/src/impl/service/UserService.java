@@ -1,7 +1,10 @@
 package com.voting.system.src.impl.service;
 
+import com.voting.system.src.impl.entity.ScheduleEntity;
 import com.voting.system.src.impl.entity.UserEntity;
 import com.voting.system.src.impl.handler.ApiException;
+import com.voting.system.src.impl.model.VoteModel;
+import com.voting.system.src.impl.repository.ScheduleRepository;
 import com.voting.system.src.impl.repository.UserRepository;
 import com.voting.system.src.impl.utils.Validations;
 import lombok.AllArgsConstructor;
@@ -15,13 +18,15 @@ import java.util.List;
 public class UserService implements Validations {
 
     private UserRepository userRepository;
+    private ScheduleRepository scheduleRepository;
 
     public UserEntity createUser(UserEntity user) {
         return userRepository.save(user);
     }
 
     public void deleteUser(String cpf) {
-        userRepository.deleteByCpf(cpf).orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User not found"));}
+        userRepository.deleteByCpf(cpf).orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User not found"));
+    }
 
     public List<UserEntity> listAllUsers() {
         return userRepository.findAll();
@@ -31,8 +36,10 @@ public class UserService implements Validations {
         return userRepository.findByCpf(cpf)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User not found"));
     }
+////////////////
+    public void voteUser(VoteModel vote) {
 
-
+    }
     @Override
     public void validatorId(String id) {
         if (userRepository.findById(id).isEmpty()) {

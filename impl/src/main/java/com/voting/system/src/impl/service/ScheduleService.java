@@ -21,8 +21,7 @@ public class ScheduleService implements Validations {
     }
 
     public void deleteByIdSchedule(String idSchedule) {
-        scheduleRepository.deleteByIdSchedule(idSchedule)
-                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
+        scheduleRepository.deleteByIdSchedule(idSchedule);
     }
 
     public List<ScheduleEntity> listAllSchedule() {

@@ -3,6 +3,7 @@ package com.voting.system.src.impl.facade;
 import com.voting.system.src.impl.entity.UserEntity;
 import com.voting.system.src.impl.mapper.UserImplMapper;
 import com.voting.system.src.impl.model.UserModel;
+import com.voting.system.src.impl.model.VoteModel;
 import com.voting.system.src.impl.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -34,5 +35,9 @@ public class UserImplFacade {
 
     public UserModel findByCPF(String cpf) {
         return mapUserEntityToUserModel(userService.findByCPF(cpf));
+    }
+
+    public void voteUser(VoteModel vote) {
+       userService.voteUser(vote);
     }
 }

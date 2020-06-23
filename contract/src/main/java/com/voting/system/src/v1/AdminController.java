@@ -47,7 +47,6 @@ public class AdminController {
     public UserListResponse allUsers() {
         return userContractFacade.allUsers();
     }
- //===========
 
     @ApiOperation(value = "Create new schedule.")
     @ApiResponses(value = {
