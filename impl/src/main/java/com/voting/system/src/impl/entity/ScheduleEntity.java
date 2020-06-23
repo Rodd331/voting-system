@@ -34,4 +34,6 @@ public class ScheduleEntity {
     Date endTimeDate;
 
     Date dateCreationSchedule = new Date();
+
+    private int scheduleTimeOpenMinut;
 }

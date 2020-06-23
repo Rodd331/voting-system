@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
@@ -14,6 +15,8 @@ public class UserEntity {
 
     @Id
     String idUser;
+
+    @Indexed(unique = true)
     String cpf;
     String password;
 }

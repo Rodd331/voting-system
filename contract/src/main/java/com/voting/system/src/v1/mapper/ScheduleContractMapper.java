@@ -15,15 +15,10 @@ public class ScheduleContractMapper {
 
     public static ScheduleModel mapScheduleRequestToScheduleModel(ScheduleRequest schedule) {
         return ScheduleModel.builder()
-                .idSchedule(schedule.getIdSchedule())
                 .nameSchedule(schedule.getNameSchedule())
                 .description(schedule.getDescription())
-                .votesApproving(schedule.getVotesApproving())
-                .votesNotApproving(schedule.getVotesNotApproving())
-                .cpfVoted(schedule.getCpfVoted())
                 .startTimeDate(schedule.getStartTimeDate())
-                .endTimeDate(schedule.getEndTimeDate())
-                .dateCreationSchedule(schedule.getDateCreationSchedule())
+                .scheduleTimeOpenMinut(schedule.getScheduleTimeOpenMinut())
                 .build();
     }
 

@@ -18,7 +18,6 @@ public class ScheduleImplMapper {
                 .cpfVoted(scheduleEntity.getCpfVoted())
                 .startTimeDate(scheduleEntity.getStartTimeDate())
                 .endTimeDate(scheduleEntity.getEndTimeDate())
-                .dateCreationSchedule(scheduleEntity.getDateCreationSchedule())
                 .build();
     }
 
@@ -32,7 +31,6 @@ public class ScheduleImplMapper {
                 .cpfVoted(scheduleModel.getCpfVoted())
                 .startTimeDate(scheduleModel.getStartTimeDate())
                 .endTimeDate(scheduleModel.getEndTimeDate())
-                .dateCreationSchedule(scheduleModel.getDateCreationSchedule())
                 .build();
     }
 }

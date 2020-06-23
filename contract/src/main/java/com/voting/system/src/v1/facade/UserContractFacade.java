@@ -1,8 +1,6 @@
 package com.voting.system.src.v1.facade;
 
 import com.voting.system.src.impl.facade.UserImplFacade;
-import com.voting.system.src.impl.model.VoteModel;
-import com.voting.system.src.v1.mapper.VoteContractMapper;
 import com.voting.system.src.v1.model.request.UserRequest;
 import com.voting.system.src.v1.model.request.VoteRequest;
 import com.voting.system.src.v1.model.response.UserListResponse;

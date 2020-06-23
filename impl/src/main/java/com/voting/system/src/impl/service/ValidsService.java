@@ -10,6 +10,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static com.voting.system.src.impl.integration.Integration.consumerCPF;
 
 @Service
@@ -65,5 +68,14 @@ public class ValidsService {
         if (!user.getPassword().equals(vote.getPassword())) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Invalid password");
         }
+    }
+
+    public static Date adcMinut(Date data, Integer minutos){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(data);
+        cal.add(Calendar.MINUTE, minutos);
+        Date dataFinal = cal.getTime();
+
+        return dataFinal;
     }
 }

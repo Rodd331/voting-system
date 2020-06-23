@@ -78,7 +78,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "Schedules not found", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @GetMapping("/user/{idSchedule}")
+    @GetMapping("/user/schedule/{idSchedule}")
     public ScheduleResponse findByIdSchedule(@PathVariable String idSchedule) {
         return scheduleContractFacade.findByIdSchedule(idSchedule);
     }

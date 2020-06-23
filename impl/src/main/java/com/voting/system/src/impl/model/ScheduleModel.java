@@ -19,9 +19,12 @@ public class ScheduleModel {
     Integer votesApproving;
     Integer votesNotApproving;
 
-    List<Integer> cpfVoted;
+    List<String> cpfVoted;
 
     Date startTimeDate;
     Date endTimeDate;
     Date dateCreationSchedule;
+
+    private int scheduleTimeOpenMinut;
+
 }

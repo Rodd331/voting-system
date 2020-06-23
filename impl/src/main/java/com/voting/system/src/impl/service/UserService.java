@@ -1,9 +1,7 @@
 package com.voting.system.src.impl.service;
 
-import com.voting.system.src.impl.entity.ScheduleEntity;
 import com.voting.system.src.impl.entity.UserEntity;
 import com.voting.system.src.impl.handler.ApiException;
-import com.voting.system.src.impl.model.VoteModel;
 import com.voting.system.src.impl.repository.ScheduleRepository;
 import com.voting.system.src.impl.repository.UserRepository;
 import com.voting.system.src.impl.utils.Validations;

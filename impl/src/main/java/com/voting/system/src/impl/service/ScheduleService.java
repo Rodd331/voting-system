@@ -8,7 +8,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+
+import static com.voting.system.src.impl.service.ValidsService.adcMinut;
 
 @Service
 @AllArgsConstructor
@@ -17,6 +20,12 @@ public class ScheduleService implements Validations {
     private ScheduleRepository scheduleRepository;
 
     public ScheduleEntity createSchedule(ScheduleEntity schedule) {
+        int minutes = schedule.getScheduleTimeOpenMinut();
+        if (minutes == 0){
+            minutes = 1;
+        }
+        Date data = adcMinut(schedule.getStartTimeDate(), minutes);
+        schedule.setEndTimeDate(data);
         return scheduleRepository.save(schedule);
     }
 
