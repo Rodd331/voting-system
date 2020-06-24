@@ -19,5 +19,4 @@ public class UserEntity {
     @Indexed(unique = true)
     String cpf;
     String password;
-
 }

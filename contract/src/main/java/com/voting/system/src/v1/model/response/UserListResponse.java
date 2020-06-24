@@ -15,5 +15,4 @@ public class UserListResponse {
 
     private List<UserResponse> userResponseList;
     private int size;
-
 }

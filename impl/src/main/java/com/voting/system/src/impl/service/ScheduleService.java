@@ -38,24 +38,23 @@ public class ScheduleService implements Validations {
 
     public List<ScheduleEntity> listAllOpenSchedules() {
         List<ScheduleEntity> lista = scheduleRepository.findAll();
-
-        lista.stream().forEach(list -> {
-            if (!list.getStartTimeDate().before(adcMinut(list.getStartTimeDate(), list.getScheduleTimeOpenMinut()))) {
-                lista.remove(list);
-            }
-        });
-        return lista;
-    }
-
-    public ScheduleEntity updateSchedule(ScheduleEntity schedule) {
-        return scheduleRepository.save(schedule);
+        try {
+            lista.stream().forEach(list -> {
+                if (!list.getStartTimeDate().before(adcMinut(list.getStartTimeDate(), list.getScheduleTimeOpenMinut()))) {
+                    lista.remove(list);
+                }
+            });
+            return lista;
+        } catch (Exception e) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Open schedule not found");
+        }
     }
 
     public ScheduleEntity findByIdSchedule(String idSchedule) {
         return scheduleRepository.findById(idSchedule)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
     }
-//Todo trabalhando no metodo
+
     public void openSchedule(String idSchedule) {
         ScheduleEntity schedule = scheduleRepository.findByIdSchedule(idSchedule);
         if (schedule.getStartTimeDate() != null) {

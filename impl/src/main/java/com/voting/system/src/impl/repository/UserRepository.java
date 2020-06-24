@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface UserRepository extends MongoRepository<UserEntity, String> {
 
     Optional<UserEntity> deleteByCpf(String cpf);
+
     Optional<UserEntity> findByCpf(String cpf);
 }

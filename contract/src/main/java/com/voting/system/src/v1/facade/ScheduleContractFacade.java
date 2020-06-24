@@ -16,7 +16,8 @@ public class ScheduleContractFacade {
     private ScheduleImplFacade scheduleImplFacade;
 
     public ScheduleResponse createSchedule(ScheduleRequest schedule) {
-        return mapScheduleModelToScheduleResponse(scheduleImplFacade.createSchedule(mapScheduleRequestToScheduleModel(schedule)));
+        return mapScheduleModelToScheduleResponse(scheduleImplFacade
+                .createSchedule(mapScheduleRequestToScheduleModel(schedule)));
     }
 
     public void deleteByIdSchedule(String idSchedule) {
@@ -31,10 +32,6 @@ public class ScheduleContractFacade {
         return mapScheduleListToScheduleListResponse(scheduleImplFacade.allOpenSchedules());
     }
 
-    public ScheduleResponse updateSchedule(ScheduleRequest schedule, String idSchedule) {
-        return mapScheduleModelToScheduleResponse(scheduleImplFacade.updateSchedule(mapScheduleRequestToScheduleModel(schedule), idSchedule));
-    }
-
     public ScheduleResponse findByIdSchedule(String idSchedule) {
         return mapScheduleModelToScheduleResponse(scheduleImplFacade.findByIdSchedule(idSchedule));
     }
@@ -43,4 +40,3 @@ public class ScheduleContractFacade {
         scheduleImplFacade.openSchedule(idSchedule);
     }
 }
-

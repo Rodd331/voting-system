@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -23,12 +22,11 @@ public class ValidsService {
     private UserRepository userRepository;
     private ScheduleRepository scheduleRepository;
 
-
     public void validatorListCPF(VoteModel vote) {
         ScheduleEntity schedule = scheduleRepository.findByIdSchedule(vote.getIdSchedule());
-            if (schedule.getCpfVoted().contains(vote.getCpf())) {
-                throw new ApiException(HttpStatus.BAD_REQUEST, "cpf already voted");
-            }
+        if (schedule.getCpfVoted().contains(vote.getCpf())) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "cpf already voted");
+        }
 
     }
 

@@ -1,7 +1,6 @@
 package com.voting.system.src.impl.integration;
 
 import lombok.Generated;
-import lombok.Getter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -38,5 +37,4 @@ public class Integration {
         }
         return retorno;
     }
-
 }

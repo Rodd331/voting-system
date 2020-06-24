@@ -94,8 +94,4 @@ public class UserController {
     public void voteUser(@Valid @RequestBody VoteRequest vote) {
         userContractFacade.voteUser(vote);
     }
-
 }
-
-
-

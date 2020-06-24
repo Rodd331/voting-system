@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface ScheduleRepository extends MongoRepository<ScheduleEntity, String> {
 
     ScheduleEntity deleteByIdSchedule(String idSchedule);
+
     ScheduleEntity findByIdSchedule(String idSchedule);
 }

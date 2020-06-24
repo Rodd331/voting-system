@@ -1,6 +1,8 @@
 package com.voting.system.src.impl.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @AllArgsConstructor
 @Data

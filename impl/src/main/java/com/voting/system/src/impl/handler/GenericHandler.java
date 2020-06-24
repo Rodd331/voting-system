@@ -66,4 +66,3 @@ public class GenericHandler {
         return new ResponseEntity<>(exceptionResponse, exception.getHttpStatus());
     }
 }
-

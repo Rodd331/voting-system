@@ -6,5 +6,6 @@ import org.springframework.stereotype.Component;
 public interface Validations {
 
     void validatorId(String id);
+
     void validationEmptyList();
 }

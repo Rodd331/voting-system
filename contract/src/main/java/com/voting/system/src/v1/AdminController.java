@@ -72,18 +72,6 @@ public class AdminController {
         scheduleContractFacade.deleteByIdSchedule(idSchedule);
     }
 
-    @ApiOperation(value = "Update registered schedule.")
-    @ApiResponses({
-            @ApiResponse(code = 200, message = "Updated schedule"),
-            @ApiResponse(code = 400, message = "Data already registered", response = ExceptionResponse.class),
-            @ApiResponse(code = 404, message = "Schedule not found", response = ExceptionResponse.class),
-            @ApiResponse(code = 500, message = "Internal Server Error", response = ExceptionResponse.class)
-    })
-    @PutMapping("/schedule/{idSchedule}")
-    public @Valid ScheduleResponse updateSchedule(@Valid @RequestBody ScheduleRequest schedule, @PathVariable String idSchedule) {
-        return scheduleContractFacade.updateSchedule(schedule, idSchedule);
-    }
-
     @ApiOperation(value = "Open schedule.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Open schedule"),
@@ -96,4 +84,3 @@ public class AdminController {
         scheduleContractFacade.openSchedule(idSchedule);
     }
 }
-

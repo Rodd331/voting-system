@@ -16,6 +16,7 @@ import static com.voting.system.src.impl.mapper.ScheduleImplMapper.mapScheduleMo
 @Component
 @AllArgsConstructor
 public class ScheduleImplFacade {
+
     private ScheduleService scheduleService;
 
     public ScheduleModel createSchedule(ScheduleModel schedule) {
@@ -39,12 +40,6 @@ public class ScheduleImplFacade {
         return scheduleList.stream().map(ScheduleImplMapper::mapScheduleEntityToScheduleModel).collect(Collectors.toList());
     }
 
-    public ScheduleModel updateSchedule(ScheduleModel schedule, String idSchedule) {
-        scheduleService.validatorId(schedule.getIdSchedule());
-        schedule.setIdSchedule(idSchedule);
-        return mapScheduleEntityToScheduleModel(scheduleService.updateSchedule(mapScheduleModelToScheduleEntity(schedule)));
-    }
-
     public ScheduleModel findByIdSchedule(String idSchedule) {
         scheduleService.validatorId(idSchedule);
         return mapScheduleEntityToScheduleModel(scheduleService.findByIdSchedule(idSchedule));
@@ -54,4 +49,3 @@ public class ScheduleImplFacade {
         scheduleService.openSchedule(idSchedule);
     }
 }
-

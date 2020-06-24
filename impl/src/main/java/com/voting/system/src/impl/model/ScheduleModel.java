@@ -24,5 +24,4 @@ public class ScheduleModel {
     Date startTimeDate;
 
     int scheduleTimeOpenMinut;
-
 }

@@ -13,5 +13,4 @@ public class UserResponse {
 
     private String idUser;
     private String cpf;
-
 }
