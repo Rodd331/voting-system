@@ -83,5 +83,17 @@ public class AdminController {
     public @Valid ScheduleResponse updateSchedule(@Valid @RequestBody ScheduleRequest schedule, @PathVariable String idSchedule) {
         return scheduleContractFacade.updateSchedule(schedule, idSchedule);
     }
+
+    @ApiOperation(value = "Open schedule.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Open schedule"),
+            @ApiResponse(code = 400, message = "Data already registered", response = ExceptionResponse.class),
+            @ApiResponse(code = 404, message = "Schedule not found", response = ExceptionResponse.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = ExceptionResponse.class)
+    })
+    @PutMapping("/schedule/open/{idSchedule}")
+    public @Valid void openSchedule(@Valid @PathVariable String idSchedule) {
+        scheduleContractFacade.openSchedule(idSchedule);
+    }
 }
 

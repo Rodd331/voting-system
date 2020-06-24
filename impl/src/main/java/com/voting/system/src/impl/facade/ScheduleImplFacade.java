@@ -49,5 +49,9 @@ public class ScheduleImplFacade {
         scheduleService.validatorId(idSchedule);
         return mapScheduleEntityToScheduleModel(scheduleService.findByIdSchedule(idSchedule));
     }
+
+    public void openSchedule(String idSchedule) {
+        scheduleService.openSchedule(idSchedule);
+    }
 }
 

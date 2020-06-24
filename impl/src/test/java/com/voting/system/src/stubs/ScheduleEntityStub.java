@@ -1,8 +1,6 @@
 package com.voting.system.src.stubs;
 
 import com.voting.system.src.impl.entity.ScheduleEntity;
-import com.voting.system.src.impl.model.ScheduleModel;
-import com.voting.system.src.impl.model.VoteModel;
 
 import java.util.Collections;
 import java.util.Date;
@@ -18,7 +16,6 @@ public class ScheduleEntityStub {
                 .votesNotApproving(2)
                 .cpfVoted(Collections.emptyList())
                 .startTimeDate(new Date())
-                .endTimeDate(new Date())
                 .build();
     }
 }

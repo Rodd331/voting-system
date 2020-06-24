@@ -17,7 +17,6 @@ public class ScheduleContractMapper {
         return ScheduleModel.builder()
                 .nameSchedule(schedule.getNameSchedule())
                 .description(schedule.getDescription())
-                .startTimeDate(schedule.getStartTimeDate())
                 .scheduleTimeOpenMinut(schedule.getScheduleTimeOpenMinut())
                 .build();
     }
@@ -30,8 +29,7 @@ public class ScheduleContractMapper {
                 .votesApproving(schedule.getVotesApproving())
                 .votesNotApproving(schedule.getVotesNotApproving())
                 .startTimeDate(schedule.getStartTimeDate())
-                .endTimeDate(schedule.getEndTimeDate())
-                .dateCreationSchedule(schedule.getDateCreationSchedule())
+                .scheduleTimeOpenMinut(schedule.getScheduleTimeOpenMinut())
                 .build();
     }
 
@@ -43,8 +41,7 @@ public class ScheduleContractMapper {
                 .votesApproving(scheduleModel.getVotesApproving())
                 .votesNotApproving(scheduleModel.getVotesNotApproving())
                 .startTimeDate(scheduleModel.getStartTimeDate())
-                .endTimeDate(scheduleModel.getEndTimeDate())
-                .dateCreationSchedule(scheduleModel.getDateCreationSchedule())
+                .scheduleTimeOpenMinut(scheduleModel.getScheduleTimeOpenMinut())
                 .build()).collect(Collectors.toList());
         return ScheduleListResponse.builder()
                 .scheduleResponseList(collect)

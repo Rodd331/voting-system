@@ -22,9 +22,7 @@ public class ScheduleModel {
     List<String> cpfVoted;
 
     Date startTimeDate;
-    Date endTimeDate;
-    Date dateCreationSchedule;
 
-    private int scheduleTimeOpenMinut;
+    int scheduleTimeOpenMinut;
 
 }

@@ -38,5 +38,9 @@ public class ScheduleContractFacade {
     public ScheduleResponse findByIdSchedule(String idSchedule) {
         return mapScheduleModelToScheduleResponse(scheduleImplFacade.findByIdSchedule(idSchedule));
     }
+
+    public void openSchedule(String idSchedule) {
+        scheduleImplFacade.openSchedule(idSchedule);
+    }
 }
 

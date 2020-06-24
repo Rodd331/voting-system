@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Builder
@@ -22,6 +21,6 @@ public class ScheduleResponse {
     Integer votesNotApproving;
 
     Date startTimeDate;
-    Date endTimeDate;
-    Date dateCreationSchedule;
+
+    int scheduleTimeOpenMinut;
 }

@@ -59,7 +59,7 @@ public class ValidsService {
         ScheduleEntity schedule = scheduleRepository.findById(vote.getIdSchedule())
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
 
-        if (schedule.getStartTimeDate().before(schedule.getEndTimeDate())) {
+        if (schedule.getStartTimeDate().before(adcMinut(schedule.getStartTimeDate(), schedule.getScheduleTimeOpenMinut()))) {
             throw new ApiException(HttpStatus.NOT_FOUND, "Schedule not open");
         }
     }
@@ -72,7 +72,7 @@ public class ValidsService {
         }
     }
 
-    public static Date adcMinut(Date data, Integer minutos){
+    public static Date adcMinut(Date data, Integer minutos) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(data);
         cal.add(Calendar.MINUTE, minutos);

@@ -17,7 +17,7 @@ public class ScheduleImplMapper {
                 .votesNotApproving(scheduleEntity.getVotesNotApproving())
                 .cpfVoted(scheduleEntity.getCpfVoted())
                 .startTimeDate(scheduleEntity.getStartTimeDate())
-                .endTimeDate(scheduleEntity.getEndTimeDate())
+                .scheduleTimeOpenMinut(scheduleEntity.getScheduleTimeOpenMinut())
                 .build();
     }
 
@@ -30,7 +30,7 @@ public class ScheduleImplMapper {
                 .votesNotApproving(scheduleModel.getVotesNotApproving())
                 .cpfVoted(scheduleModel.getCpfVoted())
                 .startTimeDate(scheduleModel.getStartTimeDate())
-                .endTimeDate(scheduleModel.getEndTimeDate())
+                .scheduleTimeOpenMinut(scheduleModel.getScheduleTimeOpenMinut())
                 .build();
     }
 }

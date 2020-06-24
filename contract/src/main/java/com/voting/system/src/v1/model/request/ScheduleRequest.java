@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -19,8 +18,5 @@ public class ScheduleRequest {
     @NotBlank(message = "Field needs to be filled")
     String description;
 
-    @NotBlank(message = "Field needs to be filled")
-    Date startTimeDate;
-
-    private int scheduleTimeOpenMinut;
+    int scheduleTimeOpenMinut;
 }

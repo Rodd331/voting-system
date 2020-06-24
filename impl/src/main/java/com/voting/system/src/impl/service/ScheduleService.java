@@ -21,11 +21,10 @@ public class ScheduleService implements Validations {
 
     public ScheduleEntity createSchedule(ScheduleEntity schedule) {
         int minutes = schedule.getScheduleTimeOpenMinut();
-        if (minutes == 0){
+
+        if (minutes == 0) {
             minutes = 1;
         }
-        Date data = adcMinut(schedule.getStartTimeDate(), minutes);
-        schedule.setEndTimeDate(data);
         return scheduleRepository.save(schedule);
     }
 
@@ -41,7 +40,7 @@ public class ScheduleService implements Validations {
         List<ScheduleEntity> lista = scheduleRepository.findAll();
 
         lista.stream().forEach(list -> {
-            if (!list.getStartTimeDate().before(list.getEndTimeDate())) {
+            if (!list.getStartTimeDate().before(adcMinut(list.getStartTimeDate(), list.getScheduleTimeOpenMinut()))) {
                 lista.remove(list);
             }
         });
@@ -55,6 +54,16 @@ public class ScheduleService implements Validations {
     public ScheduleEntity findByIdSchedule(String idSchedule) {
         return scheduleRepository.findById(idSchedule)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
+    }
+
+    public void openSchedule(String idSchedule) {
+        ScheduleEntity schedule = scheduleRepository.findByIdSchedule(idSchedule);
+        if (schedule.getStartTimeDate() != null) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Agenda has already been voted");
+        } else {
+            schedule.setStartTimeDate(new Date());
+            scheduleRepository.save(schedule);
+        }
     }
 
     @Override
