@@ -7,10 +7,10 @@ import com.voting.system.src.impl.model.VoteModel;
 import com.voting.system.src.impl.repository.ScheduleRepository;
 import com.voting.system.src.impl.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import lombok.Generated;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -23,12 +23,20 @@ public class ValidsService {
     private UserRepository userRepository;
     private ScheduleRepository scheduleRepository;
 
-    @Generated
+
+    public void validatorListCPF(VoteModel vote) {
+        ScheduleEntity schedule = scheduleRepository.findByIdSchedule(vote.getIdSchedule());
+            if (schedule.getCpfVoted().contains(vote.getCpf())) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "cpf already voted");
+            }
+
+    }
+
     public void validatorCPF(String cpf) {
         String status = consumerCPF(cpf);
         if (status.equals("U")) {
             throw new ApiException(HttpStatus.UNAUTHORIZED, "User not authorized");
-        } else if (status != "A") {
+        } else if (!status.equals("A")) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "External error");
         }
     }
@@ -51,15 +59,17 @@ public class ValidsService {
 
     public void validatorIdSchedule(VoteModel vote) {
         if (!scheduleRepository.existsById(vote.getIdSchedule())) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Not found");
+            throw new ApiException(HttpStatus.NOT_FOUND, "Schedule not found");
         }
     }
 
     public void validatorTimeSchedule(VoteModel vote) {
         ScheduleEntity schedule = scheduleRepository.findById(vote.getIdSchedule())
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
-
-        if (schedule.getStartTimeDate().before(adcMinut(schedule.getStartTimeDate(), schedule.getScheduleTimeOpenMinut()))) {
+        Date system = new Date();
+        schedule.setStartTimeDate(adcMinut(schedule.getStartTimeDate(), 180));
+        Date compare = adcMinut(schedule.getStartTimeDate(), schedule.getScheduleTimeOpenMinut());
+        if (system.after(compare)) {
             throw new ApiException(HttpStatus.NOT_FOUND, "Schedule not open");
         }
     }

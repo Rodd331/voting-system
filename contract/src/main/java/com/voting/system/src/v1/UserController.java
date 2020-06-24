@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Api(value = "Api User Controller", tags = " Api")
+@Api(value = "Api User Controller", tags = "Api")
 @RequestMapping(path = "/api/v1")
 @RestController
 @AllArgsConstructor
@@ -33,7 +33,7 @@ public class UserController {
             @ApiResponse(code = 400, message = "Bad Request", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @PostMapping("/user")
+    @PostMapping("/user/")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponse createUser(@Valid @RequestBody UserRequest user) {
         return userContractFacade.createUser(user);
@@ -56,7 +56,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "Not found", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @GetMapping("/user/schedules")
+    @GetMapping("/user/schedule/")
     public ScheduleListResponse allSchedules() {
         return scheduleContractFacade.allSchedules();
     }
@@ -67,7 +67,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "Not found", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @GetMapping("/user/openSchedules")
+    @GetMapping("/user/openSchedule/")
     public ScheduleListResponse allOpenSchedules() {
         return scheduleContractFacade.allOpenSchedules();
     }
@@ -89,7 +89,7 @@ public class UserController {
             @ApiResponse(code = 400, message = "Bad Request", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @PostMapping("/user/vote")
+    @PostMapping("/user/vote/")
     @ResponseStatus(HttpStatus.OK)
     public void voteUser(@Valid @RequestBody VoteRequest vote) {
         userContractFacade.voteUser(vote);

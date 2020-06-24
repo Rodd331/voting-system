@@ -44,9 +44,8 @@ public class UserImplFacade {
         validsService.validatorPassword(vote);
         validsService.validatorIdSchedule(vote);
         validsService.validatorTimeSchedule(vote);
+        validsService.validatorListCPF(vote);
         validsService.validatorCPF(vote.getCpf());
         validsService.insertVote(vote);
-
-
     }
 }

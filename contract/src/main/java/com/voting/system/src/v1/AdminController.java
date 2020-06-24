@@ -54,7 +54,7 @@ public class AdminController {
             @ApiResponse(code = 400, message = "Bad Request", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @PostMapping("/schedule")
+    @PostMapping("/schedule/")
     @ResponseStatus(HttpStatus.CREATED)
     public ScheduleResponse createSchedule(@Valid @RequestBody ScheduleRequest schedule) {
         return scheduleContractFacade.createSchedule(schedule);

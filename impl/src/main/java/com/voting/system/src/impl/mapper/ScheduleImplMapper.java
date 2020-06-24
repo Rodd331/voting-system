@@ -5,6 +5,8 @@ import com.voting.system.src.impl.model.ScheduleModel;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ScheduleImplMapper {
 
@@ -26,9 +28,9 @@ public class ScheduleImplMapper {
                 .idSchedule(scheduleModel.getIdSchedule())
                 .nameSchedule(scheduleModel.getNameSchedule())
                 .description(scheduleModel.getDescription())
-                .votesApproving(scheduleModel.getVotesApproving())
-                .votesNotApproving(scheduleModel.getVotesNotApproving())
-                .cpfVoted(scheduleModel.getCpfVoted())
+                .votesApproving(0)
+                .votesNotApproving(0)
+                .cpfVoted(new ArrayList<>())
                 .startTimeDate(scheduleModel.getStartTimeDate())
                 .scheduleTimeOpenMinut(scheduleModel.getScheduleTimeOpenMinut())
                 .build();
