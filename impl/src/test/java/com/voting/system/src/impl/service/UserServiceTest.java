@@ -10,7 +10,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 import static com.voting.system.src.stubs.UserEntityStub.generationUserEntity;
 import static org.mockito.ArgumentMatchers.any;
@@ -36,6 +39,7 @@ public class UserServiceTest {
         userService.createUser(generationUserEntity());
         verify(userRepository).save(generationUserEntity());
     }
+
 
     @Test
     public void deleteUserException() {
