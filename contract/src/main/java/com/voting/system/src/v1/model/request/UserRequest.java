@@ -2,14 +2,13 @@ package com.voting.system.src.v1.model.request;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Data
+@lombok.Data
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserRequest {

@@ -2,13 +2,14 @@ package com.voting.system.src.impl.handler;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Generated;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+@Generated
 @AllArgsConstructor
-@Data
+@lombok.Data
 @Builder
 public class ExceptionResponse {
 

@@ -2,13 +2,12 @@ package com.voting.system.src.impl.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
-@Data
+@lombok.Data
 @Builder
 public class ScheduleModel {
 

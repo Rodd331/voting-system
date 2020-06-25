@@ -19,5 +19,4 @@ public class UserEntityStub {
                     .password("123456")
                 .build();
     }
-
 }

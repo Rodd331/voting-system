@@ -2,10 +2,9 @@ package com.voting.system.src.v1.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@lombok.Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
