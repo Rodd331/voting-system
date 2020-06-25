@@ -9,7 +9,7 @@ public class ScheduleEntityStub {
 
     public static ScheduleEntity generationScheduleEntity() {
         return ScheduleEntity.builder()
-                .idSchedule("123456")
+                .idSchedule("someid")
                 .nameSchedule("Teste01")
                 .description("Testando metodo")
                 .votesApproving(3)

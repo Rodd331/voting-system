@@ -8,7 +8,7 @@ public class UserEntityStub {
         return UserEntity.builder()
                 .idUser("someid")
                 .cpf("01905793073")
-                .password("teste@live.com")
+                .password("12345")
                 .build();
     }
 

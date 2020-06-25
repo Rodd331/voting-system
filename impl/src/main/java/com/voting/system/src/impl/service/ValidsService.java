@@ -30,13 +30,13 @@ public class ValidsService {
 
     }
 
-    public void validatorCPF(String cpf) {
+    public Boolean validatorCPF(String cpf) {
         String status = consumerCPF(cpf);
         if (status.equals("U")) {
             throw new ApiException(HttpStatus.UNAUTHORIZED, "User not authorized");
         } else if (!status.equals("A")) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "External error");
-        }
+        }return true;
     }
 
     public void insertVote(VoteModel vote) {
