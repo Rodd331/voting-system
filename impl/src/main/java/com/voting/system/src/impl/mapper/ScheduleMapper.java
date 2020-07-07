@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ScheduleImplMapper {
+public class ScheduleMapper {
 
-    public static ScheduleModel mapScheduleEntityToScheduleModel(ScheduleEntity scheduleEntity) {
+    public static ScheduleModel mapToScheduleModel(ScheduleEntity scheduleEntity) {
         return ScheduleModel.builder()
                 .idSchedule(scheduleEntity.getIdSchedule())
                 .nameSchedule(scheduleEntity.getNameSchedule())
@@ -23,7 +23,7 @@ public class ScheduleImplMapper {
                 .build();
     }
 
-    public static ScheduleEntity mapScheduleModelToScheduleEntity(ScheduleModel scheduleModel) {
+    public static ScheduleEntity mapToScheduleEntity(ScheduleModel scheduleModel) {
         return ScheduleEntity.builder()
                 .idSchedule(scheduleModel.getIdSchedule())
                 .nameSchedule(scheduleModel.getNameSchedule())

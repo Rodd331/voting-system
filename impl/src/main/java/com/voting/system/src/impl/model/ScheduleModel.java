@@ -1,7 +1,9 @@
 package com.voting.system.src.impl.model;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @lombok.Data
 @Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class ScheduleModel {
 
     String idSchedule;

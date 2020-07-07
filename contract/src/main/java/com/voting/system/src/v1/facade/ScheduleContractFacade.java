@@ -1,6 +1,6 @@
 package com.voting.system.src.v1.facade;
 
-import com.voting.system.src.impl.facade.ScheduleImplFacade;
+import com.voting.system.src.impl.facade.ScheduleFacade;
 import com.voting.system.src.v1.model.request.ScheduleRequest;
 import com.voting.system.src.v1.model.response.ScheduleListResponse;
 import com.voting.system.src.v1.model.response.ScheduleResponse;
@@ -13,30 +13,30 @@ import static com.voting.system.src.v1.mapper.ScheduleContractMapper.*;
 @AllArgsConstructor
 public class ScheduleContractFacade {
 
-    private ScheduleImplFacade scheduleImplFacade;
+    private ScheduleFacade scheduleFacade;
 
     public ScheduleResponse createSchedule(ScheduleRequest schedule) {
-        return mapScheduleModelToScheduleResponse(scheduleImplFacade
-                .createSchedule(mapScheduleRequestToScheduleModel(schedule)));
+        return mapToScheduleResponse(scheduleFacade
+                .createSchedule(mapToScheduleModel(schedule)));
     }
 
     public void deleteByIdSchedule(String idSchedule) {
-        scheduleImplFacade.deleteByIdSchedule(idSchedule);
+        scheduleFacade.deleteByIdSchedule(idSchedule);
     }
 
     public ScheduleListResponse allSchedules() {
-        return mapScheduleListToScheduleListResponse(scheduleImplFacade.allSchedules());
+        return mapToScheduleListResponse(scheduleFacade.allSchedules());
     }
 
     public ScheduleListResponse allOpenSchedules() {
-        return mapScheduleListToScheduleListResponse(scheduleImplFacade.allOpenSchedules());
+        return mapToScheduleListResponse(scheduleFacade.allOpenSchedules());
     }
 
     public ScheduleResponse findByIdSchedule(String idSchedule) {
-        return mapScheduleModelToScheduleResponse(scheduleImplFacade.findByIdSchedule(idSchedule));
+        return mapToScheduleResponse(scheduleFacade.findByIdSchedule(idSchedule));
     }
 
     public void openSchedule(String idSchedule) {
-        scheduleImplFacade.openSchedule(idSchedule);
+        scheduleFacade.openSchedule(idSchedule);
     }
 }

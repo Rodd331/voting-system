@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ScheduleContractMapper {
 
-    public static ScheduleModel mapScheduleRequestToScheduleModel(ScheduleRequest schedule) {
+    public static ScheduleModel mapToScheduleModel(ScheduleRequest schedule) {
         return ScheduleModel.builder()
                 .nameSchedule(schedule.getNameSchedule())
                 .description(schedule.getDescription())
@@ -21,7 +21,7 @@ public class ScheduleContractMapper {
                 .build();
     }
 
-    public static ScheduleResponse mapScheduleModelToScheduleResponse(ScheduleModel schedule) {
+    public static ScheduleResponse mapToScheduleResponse(ScheduleModel schedule) {
         return ScheduleResponse.builder()
                 .idSchedule(schedule.getIdSchedule())
                 .nameSchedule(schedule.getNameSchedule())
@@ -33,7 +33,7 @@ public class ScheduleContractMapper {
                 .build();
     }
 
-    public static ScheduleListResponse mapScheduleListToScheduleListResponse(List<ScheduleModel> ScheduleList) {
+    public static ScheduleListResponse mapToScheduleListResponse(List<ScheduleModel> ScheduleList) {
         List<ScheduleResponse> collect = ScheduleList.stream().map(scheduleModel -> ScheduleResponse.builder()
                 .idSchedule(scheduleModel.getIdSchedule())
                 .nameSchedule(scheduleModel.getNameSchedule())

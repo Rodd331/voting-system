@@ -1,8 +1,10 @@
 package com.voting.system.src.v1.model.response;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
@@ -10,8 +12,9 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class ScheduleListResponse {
 
-    private List<ScheduleResponse> scheduleResponseList;
-    private int size;
+    List<ScheduleResponse> scheduleResponseList;
+    int size;
 }
