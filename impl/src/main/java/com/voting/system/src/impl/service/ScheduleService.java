@@ -5,15 +5,22 @@ import com.voting.system.src.impl.handler.ApiException;
 import com.voting.system.src.impl.repository.ScheduleRepository;
 import com.voting.system.src.impl.utils.Utils;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.voting.system.src.impl.integration.Integration.runConsumer;
+
 @Service
 @AllArgsConstructor
+@EnableScheduling
 public class ScheduleService implements Utils {
 
     private ScheduleRepository scheduleRepository;
@@ -90,8 +97,8 @@ public class ScheduleService implements Utils {
           }
           return true;
       }*/
-    public Boolean validatorCPF(String cpf) {
-        return true;
+    @Override
+    public void validatorCPF(String cpf) {
     }
 
     @Override
@@ -104,7 +111,6 @@ public class ScheduleService implements Utils {
         return dataFinal;
     }
 
-
     /* public void validatorTimeSchedule(VoteModel vote) {
             ScheduleEntity schedule = scheduleRepository.findById(vote.getIdSchedule())
                     .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
@@ -115,4 +121,10 @@ public class ScheduleService implements Utils {
                 throw new ApiException(HttpStatus.NOT_FOUND, "Schedule not open");
             }
         }*/
+
+    @Scheduled(fixedDelay = 5000)
+    @SneakyThrows
+    public void validatorCPF22() {
+        System.out.println(runConsumer("01905793073"));
+    }
 }

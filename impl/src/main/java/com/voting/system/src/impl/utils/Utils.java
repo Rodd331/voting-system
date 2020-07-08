@@ -11,7 +11,7 @@ public interface Utils {
 
     void validationEmptyList();
 
-    Boolean validatorCPF(String cpf);
+    void validatorCPF(String cpf);
 
     Date adcMinut(Date data, Integer minutos);
 }
