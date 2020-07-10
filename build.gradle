@@ -7,7 +7,7 @@ plugins {
     id "application"
 }
 
-mainClassName = 'com.voting.system.src.SrcApplication'
+mainClassName = 'com.voting.SrcApplication'
 dependencies {
     implementation project(':contract')
     implementation 'org.springframework.boot:spring-boot-starter-actuator:2.1.8.RELEASE'
@@ -19,7 +19,7 @@ allprojects {
     apply plugin: 'org.sonarqube'
     apply plugin: 'jacoco'
 
-    group = 'com.voting.system'
+    group = 'com.voting'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '11'
 
