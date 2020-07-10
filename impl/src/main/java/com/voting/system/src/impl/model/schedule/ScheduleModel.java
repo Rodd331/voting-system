@@ -1,4 +1,4 @@
-package com.voting.system.src.impl.model;
+package com.voting.system.src.impl.model.schedule;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

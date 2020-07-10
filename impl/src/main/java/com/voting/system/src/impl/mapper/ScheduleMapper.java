@@ -1,7 +1,7 @@
 package com.voting.system.src.impl.mapper;
 
 import com.voting.system.src.impl.entity.ScheduleEntity;
-import com.voting.system.src.impl.model.ScheduleModel;
+import com.voting.system.src.impl.model.schedule.ScheduleModel;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

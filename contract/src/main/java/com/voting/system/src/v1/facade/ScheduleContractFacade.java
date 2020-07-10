@@ -2,18 +2,24 @@ package com.voting.system.src.v1.facade;
 
 import com.voting.system.src.impl.facade.ScheduleFacade;
 import com.voting.system.src.v1.model.request.ScheduleRequest;
+import com.voting.system.src.v1.model.request.VoteRequest;
 import com.voting.system.src.v1.model.response.ScheduleListResponse;
 import com.voting.system.src.v1.model.response.ScheduleResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import static com.voting.system.src.v1.mapper.ScheduleContractMapper.*;
+import static com.voting.system.src.v1.mapper.schadule.ScheduleContractMapper.*;
+import static com.voting.system.src.v1.mapper.vote.VoteContractMapper.mapToVoteModel;
 
 @Component
 @AllArgsConstructor
 public class ScheduleContractFacade {
 
     private ScheduleFacade scheduleFacade;
+
+    public void vote(VoteRequest vote) {
+        scheduleFacade.vote(mapToVoteModel(vote));
+    }
 
     public ScheduleResponse createSchedule(ScheduleRequest schedule) {
         return mapToScheduleResponse(scheduleFacade

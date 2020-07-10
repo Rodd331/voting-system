@@ -1,6 +1,6 @@
-package com.voting.system.src.v1.mapper;
+package com.voting.system.src.v1.mapper.schadule;
 
-import com.voting.system.src.impl.model.ScheduleModel;
+import com.voting.system.src.impl.model.schedule.ScheduleModel;
 import com.voting.system.src.v1.model.request.ScheduleRequest;
 import com.voting.system.src.v1.model.response.ScheduleListResponse;
 import com.voting.system.src.v1.model.response.ScheduleResponse;

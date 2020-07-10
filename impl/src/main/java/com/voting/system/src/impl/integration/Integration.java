@@ -4,11 +4,11 @@ import org.springframework.web.client.RestTemplate;
 
 public class Integration {
 
-    public static String runConsumer(String cpf) throws Exception {
+    public static String runConsumer(String cpf){
         RestTemplate restTemplate = new RestTemplate();
 
-        Vote vote = restTemplate.getForObject(
-                "https://user-info.herokuapp.com/users/" + cpf, Vote.class);
+        Cpf vote = restTemplate.getForObject(
+                "https://user-info.herokuapp.com/users/" + cpf, Cpf.class);
 
         return vote.getStatus();
     }
