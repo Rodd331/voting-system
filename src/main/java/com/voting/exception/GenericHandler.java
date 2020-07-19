@@ -1,4 +1,4 @@
-package com.voting.handler;
+package com.voting.exception;
 
 import lombok.Generated;
 import org.springframework.dao.DuplicateKeyException;

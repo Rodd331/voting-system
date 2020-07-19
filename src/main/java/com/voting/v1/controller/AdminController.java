@@ -3,7 +3,7 @@ package com.voting.v1.controller;
 import com.voting.v1.facade.ScheduleFacade;
 import com.voting.v1.model.request.ScheduleRequest;
 import com.voting.v1.model.response.ScheduleResponse;
-import com.voting.handler.ExceptionResponse;
+import com.voting.exception.ExceptionResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

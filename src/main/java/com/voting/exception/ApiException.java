@@ -1,4 +1,4 @@
-package com.voting.handler;
+package com.voting.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Generated;

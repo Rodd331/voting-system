@@ -3,7 +3,7 @@ package com.voting.v1.service;
 import com.voting.domain.entity.ScheduleEntity;
 import com.voting.domain.entity.VoteEntity;
 import com.voting.domain.repository.ScheduleRepository;
-import com.voting.handler.ApiException;
+import com.voting.exception.ApiException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
