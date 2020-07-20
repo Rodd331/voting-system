@@ -1,16 +1,17 @@
 package com.voting.v1.service;
 
+import com.voting.client.CpfClient;
+import com.voting.client.CpfResponse;
 import com.voting.domain.entity.ScheduleEntity;
-import com.voting.exception.ApiException;
 import com.voting.domain.entity.VoteEntity;
 import com.voting.domain.repository.ScheduleRepository;
+import com.voting.exception.ApiException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-import static com.voting.client.Integration.runConsumer;
 import static com.voting.v1.service.utils.Utils.adcMinut;
 
 @Service
@@ -18,13 +19,14 @@ import static com.voting.v1.service.utils.Utils.adcMinut;
 public class ValidatonsService {
 
     private final ScheduleRepository scheduleRepository;
+    private final CpfClient cpfClient;
 
     public void validatorCPF(String cpf) {
-        String consume = runConsumer(cpf);
+        CpfResponse consume = cpfClient.cpfChecking(cpf);
 
-        if (consume.startsWith("UNABLE")) {
+        if (consume.getStatus().equals("UNABLE_TO_VOTE")) {
             throw new ApiException(HttpStatus.UNAUTHORIZED, "Unauthorized user to vote");
-        } else if (!consume.startsWith("ABLE")) {
+        } else if (!consume.getStatus().equals("ABLE_TO_VOTE")) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "External error");
         }
     }
@@ -64,7 +66,7 @@ public class ValidatonsService {
         ScheduleEntity schedule = scheduleRepository.findByIdSchedule(vote.getIdSchedule());
 
         if (schedule.getCpfVoted().contains(vote.getCpf())) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "Cpf already voted");
+            throw new ApiException(HttpStatus.BAD_REQUEST, "CpfClient already voted");
         }
     }
 }
