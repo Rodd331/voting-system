@@ -25,8 +25,6 @@ public class ScheduleFacade {
     private final ScheduleService scheduleService;
     private final ValidatonsService validatonsService;
     private final KafkaService kafkaService;
-    private final String close = "close";
-    private final String open = "open";
 
     public void vote(VoteRequest vote) {
         validatonsService.checkCpfAlreadyVoted(mapToVoteEntity(vote));
@@ -52,7 +50,7 @@ public class ScheduleFacade {
 
     public ScheduleListResponse allOpenSchedules() {
         validatonsService.validationCostumerSchedules();
-        return mapToScheduleListResponse(scheduleService.listCostumerAllSchedules(open));
+        return mapToScheduleListResponse(scheduleService.listCostumerAllSchedules("open"));
     }
 
     public ScheduleResponse findByIdSchedule(String idSchedule) {
@@ -69,7 +67,7 @@ public class ScheduleFacade {
                     .getMessageAlreadySent(), "N"))
             .map((ScheduleResult scheduleResult) -> kafkaService.makeRecord(scheduleResult))
             .forEach(kafkaService::send);
-        scheduleService.listCostumerAllSchedules(close)
+        scheduleService.listCostumerAllSchedules("close")
             .forEach(scheduleService::setMessageAlreadySent);
     }
 

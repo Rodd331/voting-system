@@ -30,11 +30,11 @@ public class ScheduleService {
         scheduleRepository.save(schedule);
     }
 
-    public void addToVoters(ScheduleEntity schedule, VoteEntity vote) {
+    private void addToVoters(ScheduleEntity schedule, VoteEntity vote) {
         schedule.getCpfVoted().add(vote.getCpf());
     }
 
-    public void processVote(ScheduleEntity schedule, VoteEntity vote) {
+    private void processVote(ScheduleEntity schedule, VoteEntity vote) {
         if (vote.getVote().equals("Sim")) {
             schedule.setVotesApproving(schedule.getVotesApproving() + 1);
         } else if (vote.getVote().equals("Não")) {
@@ -117,9 +117,9 @@ public class ScheduleService {
     }
 
     public static String scheduleResultFinal(ScheduleEntity schedule) {
-        if(schedule.getVotesApproving() < schedule.getVotesNotApproving()){
+        if(schedule.getVotesApproving() > schedule.getVotesNotApproving()){
             return "Aprovada";
-        } else if(schedule.getVotesApproving() > schedule.getVotesNotApproving()){
+        } else if(schedule.getVotesApproving() < schedule.getVotesNotApproving()){
             return "Reprovada";
         } else{
             return "Empate";
