@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Api(value = "Api User Controller", tags = "Api")
-@RequestMapping(path = "/api/v1")
+@RequestMapping(path = "/api/v1/user")
 @RestController
 @AllArgsConstructor
 public class UserController {
@@ -28,7 +28,7 @@ public class UserController {
             @ApiResponse(code = 400, message = "Bad Request", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @PostMapping("/user/vote/")
+    @PostMapping("/vote/")
     public void voteUser(@Valid @RequestBody VoteRequest vote) {
         scheduleFacade.vote(vote);
     }
@@ -39,7 +39,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "Not found", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @GetMapping("/user/schedule/")
+    @GetMapping("/schedule/")
     public ScheduleListResponse allSchedules() {
         return scheduleFacade.allSchedules();
     }
@@ -50,20 +50,9 @@ public class UserController {
             @ApiResponse(code = 404, message = "Not found", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @GetMapping("/user/openSchedule/")
+    @GetMapping("/openSchedule/")
     public ScheduleListResponse allOpenSchedules() {
         return scheduleFacade.allOpenSchedules();
-    }
-
-    @ApiOperation(value = "List all close schedules.")
-    @ApiResponses({
-        @ApiResponse(code = 200, message = "Successful Operation"),
-        @ApiResponse(code = 404, message = "Not found", response = ExceptionResponse.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
-    })
-    @GetMapping("/user/closeSchedule/")
-    public ScheduleListResponse allCloseSchedules() {
-        return scheduleFacade.allCloseSchedules();
     }
 
     @ApiOperation(value = "Search for idSchedule.")
@@ -72,7 +61,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "Schedules not found", response = ExceptionResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
     })
-    @GetMapping("/user/schedule/{idSchedule}")
+    @GetMapping("/schedule/{idSchedule}")
     public ScheduleResponse findByIdSchedule(@PathVariable String idSchedule) {
         return scheduleFacade.findByIdSchedule(idSchedule);
     }

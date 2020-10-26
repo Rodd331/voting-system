@@ -112,7 +112,6 @@ public class ScheduleService {
                 if (dateSystem.after(dateCompare)) {
                     listaResult.add(mapToScheduleResult(list));
                 }
-
         });
         return listaResult;
     }

@@ -1,16 +1,17 @@
 package com.voting.domain.entity;
 
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class VoteEntity {
 
-    String idSchedule;
-    String cpf;
-    String vote;
+    private String idSchedule;
+    private String cpf;
+    private String vote;
 }

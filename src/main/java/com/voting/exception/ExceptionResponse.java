@@ -1,15 +1,14 @@
 package com.voting.exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Generated;
+import lombok.*;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
 @Generated
 @AllArgsConstructor
-@lombok.Data
+@Getter
+@Setter
 @Builder
 public class ExceptionResponse {
 

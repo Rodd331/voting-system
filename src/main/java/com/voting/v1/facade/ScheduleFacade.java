@@ -26,6 +26,7 @@ public class ScheduleFacade {
     private final ValidatonsService validatonsService;
     private final KafkaService kafkaService;
     private final String close = "close";
+    private final String open = "open";
 
     public void vote(VoteRequest vote) {
         validatonsService.checkCpfAlreadyVoted(mapToVoteEntity(vote));
@@ -51,12 +52,7 @@ public class ScheduleFacade {
 
     public ScheduleListResponse allOpenSchedules() {
         validatonsService.validationCostumerSchedules();
-        return mapToScheduleListResponse(scheduleService.listCostumerAllSchedules("open"));
-    }
-
-    public ScheduleListResponse allCloseSchedules() {
-        validatonsService.validationCostumerSchedules();
-        return mapToScheduleListResponse(scheduleService.listCostumerAllSchedules(close));
+        return mapToScheduleListResponse(scheduleService.listCostumerAllSchedules(open));
     }
 
     public ScheduleResponse findByIdSchedule(String idSchedule) {

@@ -1,4 +1,7 @@
 spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/db_api
   kafka:
     bootstrap-servers: 127.0.0.1:9092
 session-result:
