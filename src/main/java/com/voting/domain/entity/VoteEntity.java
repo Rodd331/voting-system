@@ -1,12 +1,11 @@
 package com.voting.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor
-@lombok.Data
+@Getter
+@Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class VoteEntity {

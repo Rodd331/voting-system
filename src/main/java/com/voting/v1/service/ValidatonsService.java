@@ -43,7 +43,7 @@ public class ValidatonsService {
         }
     }
 
-    public void validationOpenSchedules() {
+    public void validationCostumerSchedules() {
         if (scheduleRepository.findAllByStartTimeDateIsNotNull().isEmpty()) {
             throw new ApiException(HttpStatus.NOT_FOUND, "There are no Open schedules");
         }
@@ -51,7 +51,7 @@ public class ValidatonsService {
 
     public void validatorTimeSchedule(String idSchedule) {
         ScheduleEntity schedule = scheduleRepository.findById(idSchedule)
-                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
+            .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Schedule not found"));
 
         Date system = new Date();
         schedule.setStartTimeDate(adcMinut(schedule.getStartTimeDate(), 180));
@@ -64,9 +64,10 @@ public class ValidatonsService {
 
     public void checkCpfAlreadyVoted(VoteEntity vote) {
         ScheduleEntity schedule = scheduleRepository.findByIdSchedule(vote.getIdSchedule());
-
-        if (schedule.getCpfVoted().contains(vote.getCpf())) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "CpfClient already voted");
+        if (schedule.getCpfVoted() != null) {
+            if (schedule.getCpfVoted().contains(vote.getCpf())) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "CpfClient already voted");
+            }
         }
     }
 }

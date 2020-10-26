@@ -1,9 +1,9 @@
 package com.voting.v1.controller;
 
 import com.voting.v1.facade.ScheduleFacade;
-import com.voting.v1.model.request.VoteRequest;
-import com.voting.v1.model.response.ScheduleListResponse;
-import com.voting.v1.model.response.ScheduleResponse;
+import com.voting.v1.dto.vote.VoteRequest;
+import com.voting.v1.dto.schedule.ScheduleListResponse;
+import com.voting.v1.dto.schedule.ScheduleResponse;
 import com.voting.exception.ExceptionResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -53,6 +53,17 @@ public class UserController {
     @GetMapping("/user/openSchedule/")
     public ScheduleListResponse allOpenSchedules() {
         return scheduleFacade.allOpenSchedules();
+    }
+
+    @ApiOperation(value = "List all close schedules.")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Successful Operation"),
+        @ApiResponse(code = 404, message = "Not found", response = ExceptionResponse.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponse.class)
+    })
+    @GetMapping("/user/closeSchedule/")
+    public ScheduleListResponse allCloseSchedules() {
+        return scheduleFacade.allCloseSchedules();
     }
 
     @ApiOperation(value = "Search for idSchedule.")

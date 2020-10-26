@@ -18,7 +18,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.voting.system.src.v1"))
+                .apis(RequestHandlerSelectors.basePackage("com.voting.v1"))
                 .build()
                 .useDefaultResponseMessages(false)
                 .apiInfo(metadata());

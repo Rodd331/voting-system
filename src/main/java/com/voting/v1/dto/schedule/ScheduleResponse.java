@@ -1,12 +1,11 @@
-package com.voting.v1.model.response;
+package com.voting.v1.dto.schedule;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
-@lombok.Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

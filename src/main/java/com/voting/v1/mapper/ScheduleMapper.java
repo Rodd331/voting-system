@@ -1,9 +1,10 @@
 package com.voting.v1.mapper;
 
-import com.voting.v1.model.request.ScheduleRequest;
-import com.voting.v1.model.request.VoteRequest;
-import com.voting.v1.model.response.ScheduleListResponse;
-import com.voting.v1.model.response.ScheduleResponse;
+import com.voting.v1.dto.schedule.ScheduleRequest;
+import com.voting.v1.dto.schedule.ScheduleResult;
+import com.voting.v1.dto.vote.VoteRequest;
+import com.voting.v1.dto.schedule.ScheduleListResponse;
+import com.voting.v1.dto.schedule.ScheduleResponse;
 import com.voting.domain.entity.ScheduleEntity;
 import com.voting.domain.entity.VoteEntity;
 import lombok.AccessLevel;
@@ -11,6 +12,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.voting.v1.service.ScheduleService.scheduleResultFinal;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ScheduleMapper {
@@ -57,5 +60,16 @@ public class ScheduleMapper {
                 .cpf(vote.getCpf())
                 .vote(vote.getVote())
                 .build();
+    }
+
+    public static ScheduleResult mapToScheduleResult(ScheduleEntity schedule) {
+        return ScheduleResult.builder()
+            .idSchedule(schedule.getIdSchedule())
+            .nameSchedule(schedule.getNameSchedule())
+            .description(schedule.getDescription())
+            .votesApproving(schedule.getVotesApproving())
+            .votesNotApproving(schedule.getVotesNotApproving())
+            .result(scheduleResultFinal(schedule))
+            .build();
     }
 }
