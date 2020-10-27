@@ -65,7 +65,7 @@ public class ScheduleFacade {
             .filter(result ->
                 Objects.equals(scheduleService.findByIdSchedule(result.getIdSchedule())
                     .getMessageAlreadySent(), "N"))
-            .map((ScheduleResult scheduleResult) -> kafkaService.makeRecord(scheduleResult))
+            .map(kafkaService::makeRecord)
             .forEach(kafkaService::send);
         scheduleService.listCostumerAllSchedules("close")
             .forEach(scheduleService::setMessageAlreadySent);
